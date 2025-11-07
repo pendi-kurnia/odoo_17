@@ -1,0 +1,45 @@
+<odoo>
+
+  
+
+    <!-- Tree View -->
+    <record id="mahasiswa_tree_view_id" model="ir.ui.view">
+        <field name="name">mahasiswa.tree.view</field>
+        <field name="model">mahasiswa</field>
+        <!-- HAPUS baris <field name="type">tree</field> -->
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="nim"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="mahasiswa_form_view_id" model="ir.ui.view">
+        <field name="name">mahasiswa.form.view</field>
+        <field name="model">mahasiswa</field>
+        <!-- HAPUS baris <field name="type">form</field> -->
+        <field name="arch" type="xml">
+            <form string="Mahasiswa">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="nim"/>
+                      
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+      <!-- Action -->
+    <record id="action_mahasiswa" model="ir.actions.act_window">
+        <field name="name">Mahasiswa</field>
+        <field name="res_model">mahasiswa</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
+
+  

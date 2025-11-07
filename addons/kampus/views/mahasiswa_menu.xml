@@ -1,0 +1,14 @@
+<odoo>
+    <!-- Menu induk -->
+    <menuitem 
+        id="parent_mahasiswa_id" 
+        name="Mahasiswa"
+        sequence="10"/>
+
+    <!-- Submenu dengan action -->
+    <menuitem
+        id="child_mahasiswa_id" 
+        name="Mahasiswa"
+        parent= "parent_mahasiswa_id" 
+        action="action_mahasiswa"/>
+</odoo>
