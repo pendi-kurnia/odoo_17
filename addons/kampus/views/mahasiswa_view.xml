@@ -1,6 +1,16 @@
 <odoo>
 
-
+    <!---Clender View -->
+    <record id="mahasiswa_calendar_view_id" model="ir.ui.view">
+        <field name="name">mahasiswa.calendar.view</field>
+        <field name="model">mahasiswa</field>
+        <field name="arch" type="xml">
+            <calendar string="Jadwal Sidang Mahasiswa" date_start="tgl_sidang" date_stop="tgl_sidang">
+                <field name="name"/>
+                <field name="nim"/>
+            </calendar>
+        </field>
+    </record>
     <!-- Search View -->
     <record id="mahasiswa_search_view_id" model="ir.ui.view">
         <field name="name">mahasiswa.search.view</field>
@@ -9,6 +19,10 @@
             <search>
                 <field name="name"/>
                 <field name="nim"/>
+                <group expand="0" string="Group By">
+                    <filter name="tgl_sidang" context="
+                    {'group_by':'tgl_sidang'}"/>
+                </group>
             </search>
         </field>
     </record>
@@ -22,6 +36,7 @@
             <tree>
                 <field name="name"/>
                 <field name="nim"/>
+                <field name="tgl_sidang"/>
             </tree>
         </field>
     </record>
@@ -36,7 +51,7 @@
                     <group>
                         <field name="name"/>
                         <field name="nim"/>
-                      
+                        <field name="tgl_sidang"/>
                     </group>
                 </sheet>
             </form>
@@ -47,7 +62,7 @@
     <record id="action_mahasiswa" model="ir.actions.act_window">
         <field name="name">Mahasiswa</field>
         <field name="res_model">mahasiswa</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,calendar</field>
     </record>
 
 </odoo>
