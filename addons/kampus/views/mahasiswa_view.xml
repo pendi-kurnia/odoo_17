@@ -1,12 +1,23 @@
 <odoo>
 
+
+    <!-- Search View -->
+    <record id="mahasiswa_search_view_id" model="ir.ui.view">
+        <field name="name">mahasiswa.search.view</field>
+        <field name="model">mahasiswa</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="nim"/>
+            </search>
+        </field>
+    </record>
   
 
     <!-- Tree View -->
     <record id="mahasiswa_tree_view_id" model="ir.ui.view">
         <field name="name">mahasiswa.tree.view</field>
         <field name="model">mahasiswa</field>
-        <!-- HAPUS baris <field name="type">tree</field> -->
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
@@ -19,7 +30,6 @@
     <record id="mahasiswa_form_view_id" model="ir.ui.view">
         <field name="name">mahasiswa.form.view</field>
         <field name="model">mahasiswa</field>
-        <!-- HAPUS baris <field name="type">form</field> -->
         <field name="arch" type="xml">
             <form string="Mahasiswa">
                 <sheet>

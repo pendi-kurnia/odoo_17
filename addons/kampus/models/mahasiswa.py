@@ -6,3 +6,4 @@ class Mahasiswa(models.Model):
 
     name = fields.Char(string="Nama")
     nim = fields.Char(string="NIM")
+    tgl_sidang = fields.Date(string="Tgl Sidang")
