@@ -1,4 +1,38 @@
 <odoo>
+        <!-- Kanban View -->
+    <record id="mahasiswa_kanban_view_id" model="ir.ui.view">
+        <field name="name">mahasiswa.kanban.view</field>
+        <field name="model">mahasiswa</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="image"/>
+                <field name="name"/>
+                <field name="nim"/>
+                 <field name="tgl_sidang"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('mahasiswa','image',record.id.raw_value)"/>
+                            </div>
+                        </div>
+                            <div class="oe_kanban_details">
+                             <div>
+                                 <field name="name"/>
+                             </div>
+                             <div>
+                                 <field name="nim"/>
+                             </div>
+                             <div>
+                                 <field name="tgl_sidang"/>
+                             </div>
+                            </div>
+                        </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
 
     <!---Clender View -->
     <record id="mahasiswa_calendar_view_id" model="ir.ui.view">
@@ -49,6 +83,7 @@
             <form string="Mahasiswa">
                 <sheet>
                     <group>
+                        <field name="image" widget="image" nolable="1" />
                         <field name="name"/>
                         <field name="nim"/>
                         <field name="tgl_sidang"/>
@@ -62,7 +97,7 @@
     <record id="action_mahasiswa" model="ir.actions.act_window">
         <field name="name">Mahasiswa</field>
         <field name="res_model">mahasiswa</field>
-        <field name="view_mode">tree,form,calendar</field>
+        <field name="view_mode">tree,form,calendar,kanban</field>
     </record>
 
 </odoo>
