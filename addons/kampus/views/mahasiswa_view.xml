@@ -4,7 +4,7 @@
         <field name="name">mahasiswa.kanban.view</field>
         <field name="model">mahasiswa</field>
         <field name="arch" type="xml">
-            <kanban>
+            <kanban default_group_by='state'>
                 <field name="id"/>
                 <field name="image"/>
                 <field name="name"/>
@@ -81,12 +81,21 @@
         <field name="model">mahasiswa</field>
         <field name="arch" type="xml">
             <form string="Mahasiswa">
+                <header>
+                    <button string="Success" type="object"
+                        name="button_success" class='oe_highlight'/>
+                    <button string="Fail" type="object"
+                        name="button_fail"/>
+                    <field name="state" widget="statusbar" />
+                </header>
                 <sheet>
-                    <group>
-                        <field name="image" widget="image" nolable="1" />
+                    <group>                     
                         <field name="name"/>
                         <field name="nim"/>
                         <field name="tgl_sidang"/>
+                    </group>
+                    <group>
+                         <field name="image" widget="image" nolable="1" />
                     </group>
                 </sheet>
             </form>
